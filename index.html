@@ -303,7 +303,7 @@
                             <textarea class="Message" cols="30" rows="10" placeholder="Message.." required></textarea>
                         </div>
                         <div class="button-area">
-                            <button class="btn" type="button" onclick="sendwhatsapp();">Send message</button>
+                            <button class="btn" type="button" onclick="sendwhatsapp();"><i class="fa-brands fa-whatsapp"></i> Send message</button>
                         </div>
                     </form>
 
@@ -314,16 +314,23 @@
                             var Email = document.querySelector(".Email").value;
                             var Subject = document.querySelector(".Subject").value;
                             var Message = document.querySelector(".Message").value;
-
+                    
+                            // Check if any required field is empty
+                            if (!Name || !Email) {
+                                alert("Please fill in all required fields before sending the message.");
+                                return;
+                            }
+                    
                             var url = "https://wa.me/" + phonenumber + "?text=" +
                                 "*Name :* " + Name + "%0a" +
                                 "*Email :* " + Email + "%0a" +
                                 "*Subject:* " + Subject + "%0a%0a" +
                                 Message;
-
+                    
                             window.open(url, '_blank').focus();
                         }
                     </script>
+                    
 
 
 
